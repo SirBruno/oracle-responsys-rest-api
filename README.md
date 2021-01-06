@@ -4,8 +4,6 @@ Personal documentation with examples.
 ### Merge Trigger Email
 https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v1.3-campaigns-campaignname-email-post.html
 
-**REQ**
-
 POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
 
 ``` json
@@ -64,8 +62,7 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
 }
 ```
 
-**RES**
-
+``` json
 [
   {
     "errorMessage": null,
@@ -73,3 +70,4 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
     "recipientId": 1001109
   }
 ]
+```
