@@ -1,7 +1,7 @@
 # oracle-responsys-rest-api
 Personal documentation with examples.
 
-### Merge Trigger Email
+### :cupcake:	Merge Trigger Email
 https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v1.3-campaigns-campaignname-email-post.html
 
 POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
