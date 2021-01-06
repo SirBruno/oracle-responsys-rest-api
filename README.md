@@ -1,39 +1,27 @@
 # oracle-responsys-rest-api
+
 Personal documentation with examples.
 
 ### :fire: Merge Trigger Email
+
 https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v1.3-campaigns-campaignname-email-post.html
 
-POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
+POST /rest/api/v1.3/campaigns/{campaignName}/email
 
-``` json
+```json
 {
   "mergeTriggerRecordData": {
     "mergeTriggerRecords": [
       {
-        "fieldValues": [
-          "bruno.pereira@compasso.com.br"
-        ],
+        "fieldValues": ["contato@mail.com"],
         "optionalData": [
           {
-            "name": "NOME",
-            "value": "John Doe"
+            "name": "FIRSTNAME",
+            "value": "John"
           },
           {
-            "name": "EMAIL",
-            "value": "contact@johndoe.com"
-          },
-          {
-            "name": "TELEFONE",
-            "value": "(00) 00000-0000"
-          },
-          {
-            "name": "ASSUNTO",
-            "value": "Dúvidas"
-          },
-          {
-            "name": "PEDIDO",
-            "value": "0123456789"
+            "name": "LASTNAME",
+            "value": "Doe"
           },
           {
             "name": "MENSAGEM",
@@ -42,9 +30,7 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
         ]
       }
     ],
-    "fieldNames": [
-      "EMAIL_ADDRESS_"
-    ]
+    "fieldNames": ["EMAIL_ADDRESS_"]
   },
   "mergeRule": {
     "htmlValue": "H",
@@ -62,7 +48,7 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
 }
 ```
 
-``` json
+```json
 [
   {
     "errorMessage": null,
@@ -73,20 +59,141 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
 ```
 
 **Campaign code**
-``` html
+
+```html
 <html>
   <head>
     <title></title>
   </head>
   <body>
     <div>
-      <p><b>Nome</b>: TOKEN_|alias="DynamicVariable.NOME"|</p>
-      <p><b>E-mail</b>: TOKEN_|alias="DynamicVariable.EMAIL"|</p>
-      <p><b>Telefone</b>: TOKEN_|alias="DynamicVariable.TELEFONE"|</p>
-      <p><b>Assunto</b>: TOKEN_|alias="DynamicVariable.ASSUNTO"|</p>
-      <p><b>Pedido</b>: TOKEN_|alias="DynamicVariable.PEDIDO"|</p>
+      <p><b>First Nome</b>: TOKEN_|alias="DynamicVariable.FIRSTNAME"|</p>
+      <p><b>Last Name</b>: TOKEN_|alias="DynamicVariable.LASTNAME"|</p>
       <p><b>Mensagem</b>: TOKEN_|alias="DynamicVariable.MENSAGEM"|</p>
     </div>
   </body>
 </html>
+```
+
+### :fire: Merge List Recipients
+
+https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v1.3-lists-listname-members-post.html
+
+POST /rest/api/v1.3/lists/{listName}/members
+
+```json
+{
+  "recordData": {
+    "fieldNames": ["EMAIL_ADDRESS_"],
+    "records": [["contact@johndoe.com"]],
+    "mapTemplateName": null
+  },
+  "mergeRule": {
+    "htmlValue": "H",
+    "matchColumnName1": "EMAIL_ADDRESS_",
+    "matchColumnName2": null,
+    "optoutValue": "O",
+    "insertOnNoMatch": true,
+    "defaultPermissionStatus": "OPTIN",
+    "rejectRecordIfChannelEmpty": "E",
+    "optinValue": "I",
+    "updateOnMatch": "REPLACE_ALL",
+    "textValue": "T",
+    "matchOperator": "NONE"
+  }
+}
+```
+
+```json
+{
+  "recordData": {
+    "fieldNames": ["RIID_"],
+    "records": [["2001029"]],
+    "mapTemplateName": null
+  },
+  "mergeRule": {
+    "textValue": "T",
+    "htmlValue": "H",
+    "optinValue": "I",
+    "insertOnNoMatch": true,
+    "updateOnMatch": "REPLACE_ALL",
+    "matchColumnName1": "EMAIL_ADDRESS_",
+    "matchColumnName2": null,
+    "matchOperator": "NONE",
+    "optoutValue": "O",
+    "rejectRecordIfChannelEmpty": "E",
+    "defaultPermissionStatus": "OPTIN",
+    "matchColumnName3": null
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "/rest/api/v1.3/lists/Teste_Compasso/members",
+      "method": "POST"
+    },
+    {
+      "rel": "retrieveListRecipientsRIID",
+      "href": "/rest/api/v1.3/lists/Teste_Compasso/members/<riid>",
+      "method": "GET"
+    },
+    {
+      "rel": "deleteListRecipientsRIID",
+      "href": "/rest/api/v1.3/lists/Teste_Compasso/members/<riid>",
+      "method": "DELETE"
+    }
+  ]
+}
+```
+
+### :fire: Merge Profile Extension Recipients
+
+https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v1.3-lists-listname-listextensions-petname-members-post.html
+
+POST /rest/api/v1.3/lists/{listName}/listExtensions/{petName}/members
+
+```json
+{
+  "recordData": {
+    "fieldNames": ["RIID_", "EMAIL_ADDRESS", "ORDERID"],
+    "records": [
+      ["2001029", "contact@johndoe.com", "o12345"],
+      ["2001049", "contact@janedoe.com", "o67890"]
+    ],
+    "mapTemplateName": null
+  },
+  "insertOnNoMatch": true,
+  "updateOnMatch": "REPLACE_ALL",
+  "matchColumnName1": "RIID"
+}
+```
+
+```json
+{
+  "recordData": {
+    "fieldNames": ["RIID_"],
+    "records": [["2001029"], ["2001049"]],
+    "mapTemplateName": null
+  },
+  "insertOnNoMatch": true,
+  "updateOnMatch": "REPLACE_ALL",
+  "matchColumnName1": "RIID",
+  "matchColumnName2": null,
+  "links": [
+    {
+      "rel": "self",
+      "href": "/rest/api/v1.3/lists/Teste_Compasso/listExtensions/Pedidos/members",
+      "method": "POST"
+    },
+    {
+      "rel": "deleteProfileExtensionRecipientsRIID",
+      "href": "/rest/api/v1.3/lists/Teste_Compasso/listExtensions/Pedidos/members/<riid>",
+      "method": "DELETE"
+    },
+    {
+      "rel": "retrieveProfileExtensionRecipientsRIID",
+      "href": "/rest/api/v1.3/lists/Teste_Compasso/listExtensions/Pedidos/members/<riid>",
+      "method": "GET"
+    }
+  ]
+}
 ```
