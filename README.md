@@ -71,3 +71,22 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
   }
 ]
 ```
+
+**Campaign code**
+``` html
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <p><b>Nome</b>: TOKEN_|alias="DynamicVariable.NOME"|</p>
+      <p><b>E-mail</b>: TOKEN_|alias="DynamicVariable.EMAIL"|</p>
+      <p><b>Telefone</b>: TOKEN_|alias="DynamicVariable.TELEFONE"|</p>
+      <p><b>Assunto</b>: TOKEN_|alias="DynamicVariable.ASSUNTO"|</p>
+      <p><b>Pedido</b>: TOKEN_|alias="DynamicVariable.PEDIDO"|</p>
+      <p><b>Mensagem</b>: TOKEN_|alias="DynamicVariable.MENSAGEM"|</p>
+    </div>
+  </body>
+</html>
+```
