@@ -8,6 +8,7 @@ https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v
 
 POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
 
+``` json
 {
   "mergeTriggerRecordData": {
     "mergeTriggerRecords": [
@@ -61,6 +62,7 @@ POST https://rest001.rsys9.net/rest/api/v1.3/campaigns/TRIGR_EMAIL_API/email
     "matchOperator": "NONE"
   }
 }
+```
 
 **RES**
 
