@@ -181,17 +181,17 @@ POST /rest/api/v1.3/lists/{listName}/listExtensions/{petName}/members
   "links": [
     {
       "rel": "self",
-      "href": "/rest/api/v1.3/lists/Teste_Compasso/listExtensions/Pedidos/members",
+      "href": "/rest/api/v1.3/lists/{listName}/listExtensions/{petName}/members",
       "method": "POST"
     },
     {
       "rel": "deleteProfileExtensionRecipientsRIID",
-      "href": "/rest/api/v1.3/lists/Teste_Compasso/listExtensions/Pedidos/members/<riid>",
+      "href": "/rest/api/v1.3/lists/{listName}/listExtensions/{petName}/members/<riid>",
       "method": "DELETE"
     },
     {
       "rel": "retrieveProfileExtensionRecipientsRIID",
-      "href": "/rest/api/v1.3/lists/Teste_Compasso/listExtensions/Pedidos/members/<riid>",
+      "href": "/rest/api/v1.3/lists/{listName}/listExtensions/{petName}/members/<riid>",
       "method": "GET"
     }
   ]
