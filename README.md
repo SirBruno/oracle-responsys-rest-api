@@ -128,17 +128,17 @@ POST /rest/api/v1.3/lists/{listName}/members
   "links": [
     {
       "rel": "self",
-      "href": "/rest/api/v1.3/lists/Teste_Compasso/members",
+      "href": "/rest/api/v1.3/lists/{listName}/members",
       "method": "POST"
     },
     {
       "rel": "retrieveListRecipientsRIID",
-      "href": "/rest/api/v1.3/lists/Teste_Compasso/members/<riid>",
+      "href": "/rest/api/v1.3/lists/{listName}/members/<riid>",
       "method": "GET"
     },
     {
       "rel": "deleteListRecipientsRIID",
-      "href": "/rest/api/v1.3/lists/Teste_Compasso/members/<riid>",
+      "href": "/rest/api/v1.3/lists/{listName}/members/<riid>",
       "method": "DELETE"
     }
   ]
