@@ -137,7 +137,7 @@ POST /rest/api/v1.3/campaigns/{campaignName}/emailAttachments
 ]
 ```
 
-*Details*
+**Important!**
 - Each email can contain a maximum of 10 attachments total
 - Total size of all attachments for a single email is limited to 500 KB 
 
