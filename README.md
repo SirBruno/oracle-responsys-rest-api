@@ -86,9 +86,7 @@ POST /rest/api/v1.3/campaigns/{campaignName}/emailAttachments
   "mergeTriggerRecordDataWithAttachments": {
     "mergeTriggerRecordsWithAttachments": [
       {
-        "fieldValues": [
-          "johndoe@mail.com"
-        ],
+        "fieldValues": ["johndoe@mail.com"],
         "optionalData": [
           {
             "name": "firstName",
@@ -107,9 +105,7 @@ POST /rest/api/v1.3/campaigns/{campaignName}/emailAttachments
         ]
       }
     ],
-    "fieldNames": [
-      "EMAIL_ADDRESS_"
-    ]
+    "fieldNames": ["EMAIL_ADDRESS_"]
   },
   "mergeRule": {
     "htmlValue": "H",
@@ -137,9 +133,24 @@ POST /rest/api/v1.3/campaigns/{campaignName}/emailAttachments
 ]
 ```
 
+**Campaign code**
+
+```html
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <p>Olá TOKEN_|alias="DynamicVariable.firstName"|!</p>
+    <p>Esse email foi enviado do Oracle Responsys.</p>
+  </body>
+</html>
+```
+
 **Important!**
+
 - Each email can contain a maximum of 10 attachments total
-- Total size of all attachments for a single email is limited to 500 KB 
+- Total size of all attachments for a single email is limited to 500 KB
 
 ### :fire: Merge List Recipients
 
