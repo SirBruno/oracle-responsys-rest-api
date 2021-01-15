@@ -75,6 +75,10 @@ POST /rest/api/v1.3/campaigns/{campaignName}/email
 </html>
 ```
 
+**Important!**
+
+- The contact is automatically added to the list in case it wasn't there yet. There's no need to add the contact to the list prior to sending the email.
+
 ### :fire: Merge Trigger Email With Attachments
 
 https://docs.oracle.com/en/cloud/saas/marketing/responsys-rest-api/op-rest-api-v1.3-campaigns-campaignname-emailattachments-post.html
@@ -151,6 +155,7 @@ POST /rest/api/v1.3/campaigns/{campaignName}/emailAttachments
 
 - Each email can contain a maximum of 10 attachments total
 - Total size of all attachments for a single email is limited to 500 KB
+- The contact is automatically added to the list in case it wasn't there yet. There's no need to add the contact to the list prior to sending the email.
 
 ### :fire: Merge List Recipients
 
